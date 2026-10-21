@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>BLK CROWN 26 · Club de miembros</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+:root{--bg:#0a0a0a;--card:#131109;--line:#2e2615;--gold:#c9a24b;--gold2:#f0d78c;--ink:#f4ecd8;--mut:#9c9378;--bad:#d4574a;--ok:#7fb069;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(120% 60% at 50% -10%,#1d1708,#0a0a0a 60%);color:var(--ink);font-family:Jost,system-ui,sans-serif;display:flex;justify-content:center;min-height:100vh}
+main{width:100%;max-width:460px;padding:18px 16px 40px}
+.g{background:linear-gradient(135deg,var(--gold2),var(--gold) 55%,#8e6b1f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand{display:flex;align-items:center;gap:10px;justify-content:center;margin:6px 0 18px}
+.brand svg{width:34px;height:34px;color:var(--gold)}
+.brand b{font:700 28px 'Cormorant Garamond',Georgia,serif;letter-spacing:.14em}
+.tabs{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:16px}
+.tabs button{flex:1;border:0;background:none;color:var(--mut);font:500 14px Jost,sans-serif;padding:10px;border-radius:999px;cursor:pointer}
+.tabs button.on{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1405;font-weight:600}
+.mem{background:linear-gradient(145deg,#1c160a,#0e0c07 70%);border:1px solid var(--gold);border-radius:20px;padding:20px;box-shadow:0 0 40px rgba(201,162,75,.12),inset 0 0 0 4px #0a0a0a,inset 0 0 0 5px var(--line)}
+.mh{display:flex;align-items:center;gap:10px}.mh svg{width:26px;color:var(--gold)}
+.mh b{font:700 18px 'Cormorant Garamond',serif;letter-spacing:.12em}.mh small{display:block;color:var(--mut);font-size:11px;letter-spacing:.08em}
+.nm{font:italic 500 30px 'Cormorant Garamond',serif;margin:18px 0 4px}
+.st{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:14px 0 8px}
+.st i{aspect-ratio:1;border-radius:50%;border:1px dashed #5b4a22;display:grid;place-items:center;font:600 13px Jost;color:#6e6246;font-style:normal}
+.st i.f{border:1px solid var(--gold2);background:radial-gradient(circle,#2a210d,#14100a);color:var(--gold2)}
+.st i svg{width:58%}
+.pr{color:var(--mut);font-size:13px}
+.box{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:16px;margin-top:14px}
+.box h2{font:700 21px 'Cormorant Garamond',serif;margin:0 0 10px;letter-spacing:.04em}
+.tr{display:flex;gap:12px;align-items:center;padding:11px 0;border-top:1px solid var(--line);opacity:.62}
+.tr:first-of-type{border-top:0}.tr.on{opacity:1}
+.vv{min-width:46px;height:46px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;font:700 22px 'Cormorant Garamond',serif;color:var(--gold)}
+.tr.on .vv{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1405;border:0}
+.tr b{display:block;font-weight:500;font-size:15px}.tr small{color:var(--mut);font-size:12px}
+.tr.on small{color:var(--ok)}
+input{width:100%;font:400 15px Jost,sans-serif;padding:12px;border-radius:10px;border:1px solid var(--line);background:#0c0b08;color:var(--ink);margin-bottom:9px}
+.b{font:600 14px Jost,sans-serif;border:0;border-radius:10px;padding:12px 14px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1405;cursor:pointer}
+.b.s{background:none;color:var(--ink);border:1px solid var(--line)}.b.w{width:100%}.b.no{background:none;color:var(--bad);border:1px solid var(--bad)}
+.b:disabled{opacity:.5}
+.msg{color:var(--gold2);font-size:13.5px;margin:10px 0 0}
+.row{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}.row .i{flex:1;min-width:0}.row b{display:block;font-weight:500}.row span{color:var(--mut);font-size:12px}
+.bar{height:5px;background:var(--line);border-radius:3px;margin-top:6px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.act{display:flex;gap:6px}.act .b{padding:8px 11px;font-size:13px}
+.tag{font-size:10px;font-weight:600;background:var(--gold);color:#1a1405;border-radius:5px;padding:2px 6px;margin-left:6px;vertical-align:middle}
+.qr{background:#fff;border-radius:12px;padding:8px;width:180px;margin:6px auto}
+.demo{text-align:center;color:var(--mut);font-size:12px;border:1px dashed var(--line);border-radius:10px;padding:8px;margin-bottom:14px}
+.hint{color:var(--mut);font-size:12px;text-align:center;margin-top:12px}
+</style></head>
+<body><main>
+<div class="brand"><svg viewBox="0 0 24 24"><path d="M3 18 2 7l5 4 5-7 5 7 5-4-1 11z" fill="currentColor"/><path d="M4 19.5h16V21H4z" fill="currentColor"/></svg><b class="g">BLK CROWN 26</b></div>
+<div id="demo"></div>
+<div class="tabs"><button id="tc">Soy cliente</button><button id="tb">Soy barbero</button></div>
+<div id="v"></div>
+</main>
+<script>
+// ================= CONFIGURACIÓN =================
+const CFG={
+  URL:'https://amvrcdorolydvfmxovaf.supabase.co',            // Project URL de Supabase
+  KEY:'sb_publishable__VHRQd79HblITkRHfQ85WQ_XitIvMJs',            // Publishable key de Supabase
+  META:10,           // Visitas por tarjeta
+  WAIT:3,            // Horas mínimas entre visitas (solo modo demo; en Supabase está en setup.sql)
+  // [visitas necesarias, beneficio]  → los % son de ejemplo, cámbialos a tu gusto
+  TIERS:[[5,'10% de descuento en perfumes'],[10,'Mascarilla gratis + 20% en perfumes']]
+};
+// =================================================
+const DEMO=!CFG.URL;
+const LS=(k,v)=>{try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}};
+let api;
+if(!DEMO){
+ const sb=supabase.createClient(CFG.URL,CFG.KEY);
+ const R=async p=>{const{data,error}=await p;if(error)throw new Error(error.message);return data};
+ api={
+  reg:(n,p)=>R(sb.rpc('register_client',{p_name:n,p_phone:p})),
+  st:t=>R(sb.rpc('client_status',{p_token:t})),
+  req:t=>R(sb.rpc('request_visit',{p_token:t})),
+  login:async(e,p)=>{await R(sb.auth.signInWithPassword({email:e,password:p}))},
+  out:()=>sb.auth.signOut(),
+  has:async()=>!!(await sb.auth.getSession()).data.session,
+  pend:async()=>(await R(sb.from('visits').select('id,created_at,clients(name)').eq('status','pending').order('created_at'))).map(v=>({id:v.id,t:v.created_at,name:v.clients&&v.clients.name})),
+  cls:()=>R(sb.from('clients').select('id,name,phone,visits,redeemed').order('created_at',{ascending:false})),
+  ok:id=>R(sb.rpc('confirm_visit',{p_id:id})),
+  no:id=>R(sb.from('visits').update({status:'rejected'}).eq('id',id)),
+  add:id=>R(sb.rpc('add_visit',{p_client:id})),
+  gift:id=>R(sb.rpc('gift_reward',{p_client:id}))
+ };
+}else{
+ const D=()=>LS('bc_db')||{c:[],v:[]},W=d=>LS('bc_db',d),uid=()=>Math.random().toString(36).slice(2);
+ api={
+  reg:async(n,p)=>{const d=D();if(d.c.some(c=>c.phone===p))throw new Error('telefono_registrado');const c={id:uid(),token:uid(),name:n,phone:p,visits:0,redeemed:0};d.c.push(c);W(d);return c.token},
+  st:async t=>{const d=D(),c=d.c.find(x=>x.token===t);if(!c)return null;return{name:c.name,visits:c.visits,redeemed:c.redeemed,pending:d.v.some(v=>v.cid===c.id&&v.s==='pending'),hist:d.v.filter(v=>v.cid===c.id&&v.s==='confirmed').slice(-6).reverse().map(v=>({t:v.t,k:v.k}))}},
+  req:async t=>{const d=D(),c=d.c.find(x=>x.token===t);if(!c)return'no_client';if(d.v.some(v=>v.cid===c.id&&(v.s==='pending'||(v.s==='confirmed'&&Date.now()-v.t<CFG.WAIT*36e5))))return'wait';d.v.push({id:uid(),cid:c.id,s:'pending',t:Date.now(),k:'qr'});W(d);return'ok'},
+  login:async(e,p)=>{if(p!=='1234')throw new Error('Clave incorrecta (demo: 1234)');LS('bc_auth',1)},
+  out:async()=>LS('bc_auth',0),has:async()=>!!LS('bc_auth'),
+  pend:async()=>{const d=D();return d.v.filter(v=>v.s==='pending').map(v=>({id:v.id,t:v.t,name:(d.c.find(c=>c.id===v.cid)||{}).name}))},
+  cls:async()=>D().c,
+  ok:async id=>{const d=D(),v=d.v.find(x=>x.id===id);if(v&&v.s==='pending'){v.s='confirmed';v.t=Date.now();d.c.find(c=>c.id===v.cid).visits++;W(d)}},
+  no:async id=>{const d=D();d.v.find(x=>x.id===id).s='rejected';W(d)},
+  add:async id=>{const d=D();d.c.find(c=>c.id===id).visits++;d.v.push({id:uid(),cid:id,s:'confirmed',t:Date.now(),k:'manual'});W(d)},
+  gift:async id=>{const d=D(),c=d.c.find(x=>x.id===id);if(c.visits>=CFG.META){c.visits-=CFG.META;c.redeemed++;W(d)}}
+ };
+ document.getElementById('demo').innerHTML='<div class="demo">Modo demostración: los datos se guardan solo en este navegador. Panel del barbero: cualquier correo y clave 1234.</div>';
+}
+const crown='<svg viewBox="0 0 24 24"><path d="M3 18 2 7l5 4 5-7 5 7 5-4-1 11z" fill="currentColor"/></svg>';
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const hr=t=>new Date(t).toLocaleString('es-PE',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+const ERR={telefono_registrado:'Ese celular ya tiene tarjeta. Pídele ayuda a tu barbero.',datos_invalidos:'Escribe tu nombre y un celular válido.'};
+let tab='c',tok=LS('bc_tok'),st=null,authd=false,pend=[],cls=[],msg='',scan=location.hash==='#visita';
+const $=id=>document.getElementById(id);
+
+async function load(){
+ if(tok){try{st=await api.st(tok);if(!st){tok=null;LS('bc_tok',null)}}catch(e){}}
+ authd=await api.has();
+ if(authd){try{[pend,cls]=await Promise.all([api.pend(),api.cls()])}catch(e){}}
+}
+function qrSvg(){try{const q=qrcode(0,'M');q.addData(location.href.split('#')[0]+'#visita');q.make();return q.createSvgTag({cellSize:4,margin:0,scalable:true})}catch(e){return''}}
+
+function cliente(){
+ if(!st)return `<div class="box"><h2>Únete al club</h2><p class="pr" style="margin:0 0 12px">Suma una visita en cada corte y gana beneficios.</p><input id="n" placeholder="Tu nombre" autocomplete="name"><input id="p" placeholder="Tu celular" inputmode="tel" autocomplete="tel"><button class="b w" data-a="reg">Crear mi tarjeta</button>${msg?`<p class="msg">${msg}</p>`:''}</div>`;
+ const n=Math.min(st.visits,CFG.META);
+ const stamps=Array.from({length:CFG.META},(_,i)=>`<i class="${i<n?'f':''}">${i<n?crown:i+1}</i>`).join('');
+ const tiers=CFG.TIERS.map(([v,t])=>{const on=st.visits>=v;return `<div class="tr ${on?'on':''}"><div class="vv">${v}</div><div><b>${t}</b><small>${on?'Desbloqueado: pídelo en tu próxima visita':'Te '+(v-st.visits===1?'falta 1 visita':'faltan '+(v-st.visits)+' visitas')}</small></div></div>`}).join('');
+ return `<section class="mem"><div class="mh">${crown}<div><b class="g">BLK CROWN 26</b><small>CLUB DE MIEMBROS</small></div></div><div class="nm">${esc(st.name)}</div><div class="st">${stamps}</div><div class="pr">${n} de ${CFG.META} visitas${st.redeemed?` · ${st.redeemed} premio${st.redeemed>1?'s':''} canjeado${st.redeemed>1?'s':''}`:''}</div></section>
+ <div class="box"><h2>Beneficios que puedes ganar</h2>${tiers}<p class="pr" style="margin:10px 0 0">Al canjear tu premio de ${CFG.META} visitas, la tarjeta vuelve a empezar.</p></div>
+ <button class="b w" data-a="scan" style="margin-top:14px" ${st.pending?'disabled':''}>${st.pending?'Esperando confirmación del barbero…':'Registrar mi visita'}</button>${msg?`<p class="msg">${msg}</p>`:''}
+ <div class="box"><h2>Mis visitas</h2>${(st.hist&&st.hist.length)?st.hist.map(h=>`<div class="row"><div class="i"><b>Visita confirmada</b><span>${hr(h.t)}</span></div></div>`).join(''):'<p class="pr" style="margin:0">Aún no tienes visitas confirmadas.</p>'}</div>
+ <button class="b s w" data-a="salir" style="margin-top:12px">No soy yo</button>`;
+}
+function barbero(){
+ if(!authd)return `<div class="box"><h2>Panel del barbero</h2><input id="em" type="email" placeholder="Correo" autocomplete="username"><input id="pw" type="password" placeholder="Clave" autocomplete="current-password"><button class="b w" data-a="login">Entrar</button>${msg?`<p class="msg">${msg}</p>`:''}</div>`;
+ const pen=pend.map(p=>`<div class="row"><div class="i"><b>${esc(p.name)}</b><span>${hr(p.t)}</span></div><div class="act"><button class="b" data-ok="${p.id}">Confirmar</button><button class="b no" data-no="${p.id}">No</button></div></div>`).join('');
+ const lst=cls.map(c=>`<div class="row"><div class="i"><b>${esc(c.name)}${c.visits>=CFG.META?'<span class="tag">PREMIO</span>':''}</b><span>${esc(c.phone)} · ${c.visits} visitas · ${c.redeemed} canjes</span><div class="bar"><i style="width:${Math.min(c.visits,CFG.META)*100/CFG.META}%"></i></div></div><div class="act"><button class="b s" data-plus="${c.id}">+1</button>${c.visits>=CFG.META?`<button class="b" data-gift="${c.id}">Canjear</button>`:''}</div></div>`).join('');
+ return `<div class="box"><h2>Por confirmar (${pend.length})</h2>${pen||'<p class="pr" style="margin:0">No hay visitas pendientes.</p>'}</div>
+ <div class="box"><h2>Clientes (${cls.length})</h2>${lst||'<p class="pr" style="margin:0">Aún no hay clientes.</p>'}</div>
+ <div class="box" style="text-align:center"><h2>QR del local</h2><div class="qr">${qrSvg()}</div><p class="pr" style="margin:8px 0 0">Imprímelo y ponlo en el espejo o en caja. Al escanearlo, el cliente registra su visita.</p></div>
+ ${msg?`<p class="msg">${msg}</p>`:''}<button class="b s w" data-a="out" style="margin-top:12px">Cerrar sesión</button>`;
+}
+function draw(){
+ $('tc').className=tab==='c'?'on':'';$('tb').className=tab==='b'?'on':'';
+ $('v').innerHTML=tab==='c'?cliente():barbero();msg='';
+}
+async function refresh(){await load();const a=document.activeElement;if(!a||a.tagName!=='INPUT')draw()}
+async function doScan(){
+ try{const r=await api.req(tok);msg=r==='ok'?'Visita enviada. Tu barbero la confirmará en un momento.':'Ya tienes una visita pendiente o muy reciente.'}catch(e){msg=e.message}
+ await load();
+}
+$('tc').onclick=()=>{tab='c';draw()};$('tb').onclick=()=>{tab='b';draw()};
+$('v').onclick=async e=>{
+ const t=e.target.closest('button');if(!t)return;const d=t.dataset;
+ try{
+  if(d.a==='reg'){tok=await api.reg($('n').value,$('p').value);LS('bc_tok',tok);await load();if(scan){await doScan();scan=false}}
+  else if(d.a==='scan')await doScan();
+  else if(d.a==='salir'){tok=null;st=null;LS('bc_tok',null)}
+  else if(d.a==='login'){await api.login($('em').value,$('pw').value);await load()}
+  else if(d.a==='out'){await api.out();authd=false}
+  else if(d.ok){await api.ok(d.ok);await load()}
+  else if(d.no){await api.no(d.no);await load()}
+  else if(d.plus){await api.add(d.plus);await load()}
+  else if(d.gift){await api.gift(d.gift);await load()}
+ }catch(err){msg=ERR[String(err.message).trim()]||ERR[Object.keys(ERR).find(k=>String(err.message).includes(k))]||err.message}
+ draw();
+};
+(async()=>{await load();if(scan&&tok&&st){await doScan();scan=false}draw();setInterval(refresh,8000)})();
+</script></body></html>
